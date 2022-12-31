@@ -1,0 +1,466 @@
+body {
+    background-color: #432C7A;
+    font-family: 'Bebas Neue', cursive;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ------------------Pop-Up-Box---------------------- */
+.pop-up-box {
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.1);
+    visibility: hidden;
+    transition: 0.5s ease;
+    transition-property: visibility;
+}
+
+.pop-up {
+    z-index: 9999;
+    position: fixed;
+    width: 20%;
+    background-color: #FF8FB1;
+    border-radius: 10px 10px 3px 3px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transform: scale(0);
+    transition: 0.5s ease;
+    transition-property: transform;
+}
+
+.active {
+
+    transform: scale(1);
+}
+
+.pop-up-name {
+    background-color: #80489C;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: relative;
+}
+
+.pop-up-name h3 {
+    color: #FF8FB1;
+    font-size: 35px;
+    padding: 10px 0;
+}
+
+.close {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    color: #FF8FB1;
+    background-color: transparent;
+    opacity: 0.5;
+    font-size: 15px;
+}
+
+.close:hover {
+    opacity: 1;
+}
+
+
+.instructions {
+    text-align: left;
+    /* background-color: #FF8FB1; */
+    color: #432C7A;
+    border-radius: 0 0 3px 3px;
+    padding: 10px 0;
+    font-size: 25px;
+}
+
+.instructions ul {
+    margin: 0;
+}
+
+p {
+    margin: 10px 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.copyright a {
+    font-family: 'Montserrat', sans-serif;
+    color: #432C7A;
+    font-size: 15px;
+    opacity: 0.8;
+}
+
+.copyright a:hover {
+    opacity: 1;
+}
+
+.winning-image{
+    width: 150px;
+}
+
+/* -------------------------------------------------- */
+
+.Heading {
+    color: #FF8FB1;
+    font-size: 100px;
+    margin-bottom: 40px;
+}
+
+h3 {
+    margin: 0;
+}
+
+.Middle {
+    /* display: none; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+button {
+    padding: 0;
+    border: none;
+    text-align: center;
+    color: #432C7A;
+    background-color: #FF8FB1;
+    cursor: pointer;
+}
+
+.After-Btn {
+    /* display: none; */
+    transform: scale(0);
+    transition: 0.3s ease;
+    transition-property: transform;
+}
+
+.Up-Animation {
+    transition: 0.5s ease;
+    transition-property: transform;
+}
+
+.Big-Input {
+    width: 150px;
+    height: 38px;
+    font-size: 30px;
+    margin: 0;
+    border: none;
+}
+
+.Teamname input {
+    border-radius: 0 3px 3px 0;
+}
+
+.Teamname-Field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.Teamname-Field h3 {
+    color: #432C7A;
+    font-size: 25px;
+    background-color: #FF8FB1;
+    border-radius: 3px 0 0 3px;
+    padding: 2.5px 5px;
+    height: 35px;
+}
+
+.Teamname-BUtton,
+.Show-Instructions {
+    font-family: inherit;
+    font-size: 25px;
+    padding: 2px 4px;
+    border-radius: 3px;
+    width: 205px;
+    margin: 10px 0;
+}
+
+
+.Entry-Box {
+    transform: scale(1);
+}
+
+.Entry-Box-Active {
+    transform: scale(0);
+    transition: 0.2s ease;
+    transition-property: transform;
+}
+
+
+.both-innings {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 40px 0;
+}
+
+.divider {
+    height: 80;
+    width: 3px;
+    border: none;
+    border-radius: 3px;
+    background-color: #80489C;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.innings1,
+.innings2 {
+    margin-bottom: 70px;
+    width: 40%;
+}
+
+.Team1,
+.Team2 {
+    color: #FF8FB1;
+    font-size: 30px;
+}
+
+.overs {
+    color: #FCE2DB;
+    font-size: 35px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+
+input {
+    width: 45px;
+    height: 40px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    margin: 0 10px;
+    background-color: #80489C;
+    text-align: center;
+    font-size: inherit;
+    color: aliceblue;
+    font-family: inherit;
+    text-transform: uppercase;
+}
+
+.both-innings input:focus {
+    border: 1px solid #FCE2DB;
+}
+
+.overs input:hover {
+    border: 1px solid #FCE2DB;
+}
+
+input:disabled:hover {
+    cursor: not-allowed;
+    border: 1px solid red;
+}
+
+
+.numofovers {
+    display: flex;
+    justify-content: center;
+}
+
+.no-of-over {
+    border-radius: 3px 0 0 3px;
+}
+
+.no-of-over-btn {
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    border: none;
+    text-align: center;
+    font-size: 25px;
+    color: #432C7A;
+    background-color: #FF8FB1;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+}
+
+.score {
+    display: none;
+    justify-content: center;
+    flex-direction: row;
+    position: fixed;
+    bottom: 15px;
+}
+
+.detail-score,
+.mini-score {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.detail-score-btn {
+    display: none;
+}
+
+.wide,
+.Noball,
+.Runs {
+    display: flex;
+    justify-content: center;
+    margin: 0 25px;
+    font-size: 25px;
+    align-items: center;
+    flex-direction: row;
+    align-content: center;
+}
+
+.name {
+    height: 39.6px;
+    width: 85px;
+    background-color: #FF8FB1;
+    color: #432C7A;
+    border-radius: 5px 0 0 5px;
+}
+
+.wide-score,
+.No-Ball,
+.Runs-Score {
+    height: 39.6px;
+    width: 85px;
+    background-color: #80489C;
+    color: #FF8FB1;
+    border-radius: 0 5px 5px 0;
+}
+
+@media (min-width:200px) and (max-width:500px) {
+
+    /* ------------------Pop-Up-Box---------------------- */
+
+    .pop-up {
+        width: 75%;
+    }
+
+    /* -------------------------------------------------- */
+
+    .Heading {
+        font-size: 75px;
+        margin-bottom: 40px;
+    }
+
+    .detail-score-btn {
+        height: 25px;
+        width: 25px;
+        font-size: 20px;
+        border-radius: 3px;
+        display: block;
+    }
+
+    .both-innings {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .divider {
+        height: 3px;
+        width: 80%;
+        border: none;
+        border-radius: 3px;
+        background-color: #80489C;
+        margin: 40px 0;
+        display: none;
+    }
+
+    .innings1,
+    .innings2 {
+        margin-bottom: 0;
+        width: 90%;
+    }
+
+    .overs {
+        font-size: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .balls {
+        margin: 5px 0;
+    }
+
+    input {
+        width: 30px;
+        height: 30px;
+        margin: 0 5px;
+    }
+
+    .score {
+        display: none;
+        justify-content: center;
+        flex-direction: column;
+        position: unset;
+    }
+
+    .detail-score {
+        display: block;
+        justify-content: center;
+        flex-direction: row;
+        margin: 10px 0;
+        overflow: hidden;
+    }
+
+    .detail-score-container {
+        transform: translateY(-50px);
+        transition: all 0.3s ease;
+    }
+
+    .detail-score-container-active {
+        transform: translateY(0);
+    }
+
+    .mini-score {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    .wide,
+    .Noball,
+    .Runs {
+        margin: 0 10px;
+        font-size: 20px;
+    }
+
+    .name {
+        height: 25px;
+        width: 60px;
+        padding: 0 8px;
+    }
+
+    .wide-score,
+    .No-Ball,
+    .Runs-Score {
+        height: 25px;
+        width: 70px;
+        padding: 0 5px;
+    }
+
+}

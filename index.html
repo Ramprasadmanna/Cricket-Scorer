@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Score</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="Images/Icon.jpg">
+
+    <!-- Css Link -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+
+    <!-- Cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="pop-up-box">
+        <div class="pop-up Instructions-Alert">
+            <div class="pop-up-name">
+                <h3>Instructions</h3>
+                <button class="close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="instructions">
+                <ul>
+                    <li>No Ball - NB</li>
+                    <li>No Ball With Runs - 6NB</li>
+                    <li>Wide Ball- WD</li>
+                    <li>Wide Ball With Runs - 6WD</li>
+                    <li>Wicket - W</li>
+                    <li>Wicket With Runs - 6W</li>
+                    <li>Dot Ball - use (.)</li>
+                    <li>Hit Enter To Save Runs</li>
+                </ul>
+            </div>
+            <p class="copyright"><a href="https://ramprasadmanna.github.io/Mock-Portfolio/" target="_blank">©
+                    Ramprasad Manna</a>
+            </p>
+        </div>
+        <div class="pop-up Name-Alert">
+            <div class="pop-up-name">
+                <h3>Alert</h3>
+                <button class="close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="instructions Middle">
+                <h3>Name Cannot Be Empty</h3>
+            </div>
+        </div>
+        <div class="pop-up Overs-Alert">
+            <div class="pop-up-name">
+                <h3>Alert</h3>
+                <button class="close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="instructions Middle">
+                <h3>Overs Cannot Be Empty</h3>
+            </div>
+        </div>
+        <div class="pop-up Runs-Alert">
+            <div class="pop-up-name">
+                <h3>Alert</h3>
+                <button class="close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="instructions Middle">
+                <h3>Invalid Runs</h3>
+                <p>See Instructions</p>
+            </div>
+        </div>
+        <div class="pop-up Innings-Alert">
+            <div class="pop-up-name">
+                <h3>Innings Alert</h3>
+                <button class="close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="instructions Middle">
+                <h3>Inning Over</h3>
+                <p class="Team-name"></p>
+            </div>
+        </div>
+        <div class="pop-up Winner-Alert">
+            <div class="pop-up-name">
+                <h3>Result</h3>
+                <button class="close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="instructions Middle">
+                <h3 class="winning-team-name"></h3>
+                <p class="Team-name"><img src="Images/Icon.jpg" alt="" class="winning-image"></p>
+            </div>
+        </div>
+    </div>
+
+    <h1 class="Heading">Cricket Score</h1>
+
+    <!-- -------------------------- -->
+    <div class="Entry-Box">
+        <div class="Teamname-Field">
+            <h3>Team 1</h3>
+            <input type="text" id="T1name" placeholder="Enter Name" class="Big-Input" autocomplete="off">
+        </div>
+        <div class="Teamname-Field">
+            <h3>Team 2</h3>
+            <input type="text" id="T2name" placeholder="Enter Name" class="Big-Input" autocomplete="off">
+        </div>
+        <div class="numofovers">
+            <input type="number" class="no-of-over Big-Input" required placeholder="Enter Overs" autocomplete="off">
+            <button class="no-of-over-btn" id="main"><i class="fa-solid fa-check"></i></button>
+        </div>
+        <!-- <button class="Teamname-BUtton">Let's Start</button> -->
+    </div>
+
+    <div class="Up-Animation">
+        <div class="Middle After-Btn">
+            <button class="Teamname-BUtton">Refresh</button>
+            <button class="Show-Instructions">Show Instructions</button>
+        </div>
+
+        <!-- ---------------- -->
+        <div class="both-innings">
+
+            <!-- ------Team 1 Innings------ -->
+            <div class="innings1">
+                <h3 class="Team1">
+                    <!--Team 1 Name -->
+                </h3>
+                <div class="score" id="T1">
+                    <div class="mini-score">
+                        <div class="Runs">
+                            <h3 class="name">Runs</h3>
+                            <div class="Runs-Score">
+                                <h3>0 - 0</h3>
+                            </div>
+                        </div>
+                        <button class="detail-score-btn" id="0"><i class="fa-regular fa-square-caret-up"></i></button>
+                    </div>
+                    <!-- Detail Score For Mobile View Start -->
+                    <div class="detail-score">
+                        <div class="detail-score-container flex">
+                            <div class="wide">
+                                <h3 class="name">Wide</h3>
+                                <div class="wide-score">
+                                    <h3>0</h3>
+                                </div>
+                            </div>
+                            <div class="Noball">
+                                <h3 class="name">No Ball</h3>
+                                <div class="No-Ball">
+                                    <h3>0</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Detail Score For Mobile View End -->
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- ------Team 2 Innings------ -->
+            <div class="innings2">
+                <h3 class="Team2">
+                    <!--Team 2 Name -->
+                </h3>
+                <div class="score" id="T2">
+                    <div class="mini-score">
+                        <div class="Runs">
+                            <h3 class="name">Runs</h3>
+                            <div class="Runs-Score">
+                                <h3>0 - 0</h3>
+                            </div>
+                        </div>
+                        <button class="detail-score-btn" id="1"><i class="fa-regular fa-square-caret-up"></i></button>
+                    </div>
+                    <!-- Detail Score For Mobile View Start -->
+                    <div class="detail-score">
+                        <div class="detail-score-container flex">
+                            <div class="wide">
+                                <h3 class="name">Wide</h3>
+                                <div class="wide-score">
+                                    <h3>0</h3>
+                                </div>
+                            </div>
+                            <div class="Noball">
+                                <h3 class="name">No Ball</h3>
+                                <div class="No-Ball">
+                                    <h3>0</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Detail Score For Mobile View End -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- Js Link -->
+<script src="index.js"></script>
+
+</html>

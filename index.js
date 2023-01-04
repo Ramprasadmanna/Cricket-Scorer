@@ -44,7 +44,7 @@ window.onload = function () {
     Team1 = document.querySelector('#T1name');
     Team2 = document.querySelector('#T2name');
 
-    document.querySelector('.Teamname-BUtton').addEventListener('click', function () {
+    document.querySelector('.Teamname-Button').addEventListener('click', function () {
         location.reload();
     })
 
@@ -71,13 +71,10 @@ window.onload = function () {
             }
 
             else {
-                mainbtn.innerHTML = '<i class="fa-solid fa-spinner" id="animation" ></i>'
+                mainbtn.innerHTML = '<i class="fa-solid fa-spinner loading-Animation" ></i>'
                 numofoversinput.disabled = true;
 
                 var interval = setInterval(function () {
-
-                    document.querySelector("#animation").style.transform = 'rotate(' + a + 'deg)';
-                    a += 360;
 
                     j++;
                     if (numofoversinput.value == j) {
@@ -89,7 +86,7 @@ window.onload = function () {
                         document.querySelector('.Entry-Box').classList.add('Entry-Box-Active');
                         setTimeout(() => {
                             document.querySelector('.After-Btn').style.transform = 'scale(1)'
-                            document.querySelector('.Up-Animation').style.transform = 'translate(0px, -150px)'
+                            document.querySelector('.Up-Animation').style.transform = 'translateY(-150px)'
                         }, 100);
 
                         showpopup();
@@ -125,6 +122,7 @@ window.onload = function () {
                         inputbox1.addEventListener("keypress", function (event) {
                             if (event.key === "Enter") {
                                 this.blur();
+                                checkWinner();
                                 if (!winnerflag) {
                                     if (!invalid1 || !invalid2) {
                                         if (wicketT1 != 10) {
@@ -137,6 +135,7 @@ window.onload = function () {
                                             else if (this.parentElement.parentElement.nextElementSibling.className != 'overs') {
                                                 if (!T1inningover) {
                                                     T1inningover = true;
+                                                    checkWinner();
                                                 }
 
                                                 if (!T2inningover && T1inningover) {
@@ -155,6 +154,7 @@ window.onload = function () {
                                         else {
                                             if (!T1inningover) {
                                                 T1inningover = true;
+                                                checkWinner();
                                             }
 
                                             if (!T2inningover && T1inningover) {
@@ -197,6 +197,7 @@ window.onload = function () {
                         inputbox2.addEventListener("keypress", function (event) {
                             if (event.key === "Enter") {
                                 this.blur();
+                                checkWinner();
                                 if (!winnerflag) {
                                     if (!invalid3 || !invalid4) {
                                         if (wicketT2 != 10) {
@@ -210,6 +211,7 @@ window.onload = function () {
 
                                                 if (!T2inningover) {
                                                     T2inningover = true;
+                                                    checkWinner();
                                                 }
 
                                                 if (!T1inningover && T2inningover) {
@@ -227,6 +229,7 @@ window.onload = function () {
 
                                             if (!T2inningover) {
                                                 T2inningover = true;
+                                                checkWinner();
                                             }
 
                                             if (!T1inningover && T2inningover) {
@@ -248,6 +251,7 @@ window.onload = function () {
                                         invalid4 = false;
                                         this.focus();
                                     }
+                                    checkWinner();
                                 }
                             }
 
@@ -317,14 +321,42 @@ window.onload = function () {
                     if (this.parentElement.id[0] == "A") {
                         if (!invalid1 || !invalid2) {
 
-                            if (this.parentElement.nextSibling != null) {
-                                this.parentElement.nextSibling.firstChild.disabled = false;
-                                this.parentElement.nextSibling.firstChild.focus();
+                            if (wicketT1 != 10) {
+
+                                if (this.parentElement.nextSibling != null) {
+                                    this.parentElement.nextSibling.firstChild.disabled = false;
+                                    this.parentElement.nextSibling.firstChild.focus();
+                                }
+
+                                else if (this.parentElement.parentElement.nextElementSibling.className != 'overs') {
+                                    if (!T1inningover) {
+                                        T1inningover = true;
+                                        checkWinner();
+                                    }
+
+                                    if (!T2inningover && T1inningover) {
+                                        innings_popup(Team2.value, runsT1);
+                                    }
+
+                                }
+
+                                else {
+                                    this.parentElement.parentElement.nextSibling.children[1].firstChild.disabled = false;
+                                    this.parentElement.parentElement.nextSibling.children[1].firstChild.focus();
+                                }
+
                             }
 
                             else {
-                                this.parentElement.parentElement.nextSibling.children[1].firstChild.disabled = false;
-                                this.parentElement.parentElement.nextSibling.children[1].firstChild.focus();
+                                if (!T1inningover) {
+                                    T1inningover = true;
+                                    checkWinner();
+                                }
+
+                                if (!T2inningover && T1inningover) {
+                                    innings_popup(Team2.value, runsT1);
+                                }
+
                             }
                         }
 
@@ -345,14 +377,42 @@ window.onload = function () {
                     if (this.parentElement.id[0] == "B") {
                         if (!invalid3 || !invalid4) {
 
-                            if (this.parentElement.nextSibling != null) {
-                                this.parentElement.nextSibling.firstChild.disabled = false;
-                                this.parentElement.nextSibling.firstChild.focus();
+                            if (wicketT2 != 10) {
+
+                                if (this.parentElement.nextSibling != null) {
+                                    this.parentElement.nextSibling.firstChild.disabled = false;
+                                    this.parentElement.nextSibling.firstChild.focus();
+                                }
+
+                                else if (this.parentElement.parentElement.nextElementSibling.className != 'overs') {
+
+                                    if (!T2inningover) {
+                                        T2inningover = true;
+                                        checkWinner();
+                                    }
+
+                                    if (!T1inningover && T2inningover) {
+                                        innings_popup(Team1.value, runsT2);
+                                    }
+                                }
+
+                                else {
+                                    this.parentElement.parentElement.nextSibling.children[1].firstChild.disabled = false;
+                                    this.parentElement.parentElement.nextSibling.children[1].firstChild.focus();
+                                }
                             }
 
                             else {
-                                this.parentElement.parentElement.nextSibling.children[1].firstChild.disabled = false;
-                                this.parentElement.parentElement.nextSibling.children[1].firstChild.focus();
+
+                                if (!T2inningover) {
+                                    T2inningover = true;
+                                    checkWinner();
+                                }
+
+                                if (!T1inningover && T2inningover) {
+                                    innings_popup(Team1.value, runsT2);
+                                }
+
                             }
                         }
 
@@ -478,7 +538,6 @@ window.onload = function () {
 
                 case "WD":
                     wideballT2++;
-                    runsT2++;
                     document.querySelectorAll(".wide-score")[1].querySelector("h3").innerHTML = wideballT2;
                     this.disabled = true;
                     extraballs(this.parentElement.id, "WD", this.placeholder);
@@ -545,9 +604,9 @@ window.onload = function () {
             }
             document.querySelectorAll(".Runs-Score")[1].querySelector("h3").innerHTML = runsT2 + ' - ' + wicketT2;
         }
+    }
 
-        // ---------------------------------------------------------------
-
+    function checkWinner() {
         var winname = document.querySelector(".winning-team-name");
         if (T1inningover && T2inningover) {
             if (runsT1 > runsT2) {
@@ -581,6 +640,17 @@ window.onload = function () {
         }
     }
 
+    function Winner() {
+        document.querySelector('.pop-up-box').style.visibility = 'visible'
+        document.querySelector('.Winner-Alert').classList.add('active');
+        document.querySelectorAll('.close')[5].addEventListener('click', function () {
+            document.querySelector('.Winner-Alert').classList.remove('active');
+            document.querySelector('.pop-up-box').style.visibility = 'hidden'
+        })
+    }
+
+// ---------------------------------------JS For Mobile---------------------------------------
+
     // Detail Score Function For Mobile Start
     var detail_score = document.querySelectorAll('.detail-score-container');
 
@@ -592,14 +662,4 @@ window.onload = function () {
     }
 
     // Detail Score Function For Mobile End
-
-
-    function Winner() {
-        document.querySelector('.pop-up-box').style.visibility = 'visible'
-        document.querySelector('.Winner-Alert').classList.add('active');
-        document.querySelectorAll('.close')[5].addEventListener('click', function () {
-            document.querySelector('.Winner-Alert').classList.remove('active');
-            document.querySelector('.pop-up-box').style.visibility = 'hidden'
-        })
-    }
 }

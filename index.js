@@ -112,11 +112,13 @@ window.onload = function () {
                         var ballsdiv1 = document.createElement("div")
                         ballsdiv1.classList.add("balls")
                         ballsdiv1.setAttribute('id', 'A' + j + '.' + i)
+                        // enterkeyhint="go"
                         var inputbox1 = document.createElement("input")
                         inputbox1.type = "text"
                         inputbox1.maxLength = 3
                         inputbox1.placeholder = i
                         inputbox1.disabled = true
+                        inputbox1.setAttribute('enterkeyhint', 'go');
                         if (j == 1 && i == 1) { inputbox1.disabled = false }
                         inputbox1.addEventListener("focusout", setruns)
                         inputbox1.addEventListener("keypress", function (event) {
@@ -192,6 +194,7 @@ window.onload = function () {
                         inputbox2.maxLength = 3
                         inputbox2.placeholder = i
                         inputbox2.disabled = true;
+                        inputbox2.setAttribute('enterkeyhint', 'go');
                         if (j == 1 && i == 1) { inputbox2.disabled = false }
                         inputbox2.addEventListener("focusout", setruns)
                         inputbox2.addEventListener("keypress", function (event) {
@@ -313,6 +316,7 @@ window.onload = function () {
         inputbox.type = "text"
         inputbox.maxLength = 3
         inputbox.placeholder = placeholder
+        inputbox.setAttribute('enterkeyhint', 'go');
         inputbox.addEventListener("focusout", setruns)
         inputbox.addEventListener("keypress", function (event) {
             if (event.key === "Enter") {
@@ -649,7 +653,7 @@ window.onload = function () {
         })
     }
 
-// ---------------------------------------JS For Mobile---------------------------------------
+    // ---------------------------------------JS For Mobile---------------------------------------
 
     // Detail Score Function For Mobile Start
     var detail_score = document.querySelectorAll('.detail-score-container');
